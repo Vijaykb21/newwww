@@ -8,7 +8,9 @@ import { logout } from "../controllers/patient.js";
 import { otpsend, otpverify } from "../controllers/otp.js";
 import { apolloRegister, apollologin, labRegister, lablogin, medicalRegister, medicallogin, nurseRegister, nurselogin, receptionRegister, receptionlogin} from "../controllers/staff.js";
 import { createAppointments, getAppointmentsdoctor } from "../controllers/appointments.js";
-import { doclogin, doctorreg } from "../controllers/doctor.js";
+import { doclogin, doctorreg, sendPastrecord } from "../controllers/doctor.js";
+import { addInApollo, updateApollo } from "../controllers/Apollo.js";
+import { addInMedical, getAppointmentsmedical, notreferbymedical, referbymedical } from "../controllers/medical.js";
 
 
 
@@ -67,6 +69,25 @@ router.get("/nurseHome",isAuthenticatedNurse,getProfile);
 router.get("/getpastrecords", getPastrecord);
 router.post("/createAppointments",createAppointments);
 router.get("/getAppointmentsdoctor",getAppointmentsdoctor);
+
+router.post("/addInApollo" , addInApollo);
+router.post("/addInMedical" ,addInMedical);
+router.get("/getAppointmentsmedical" , getAppointmentsmedical);
+router.post("/sendPastrecord" , sendPastrecord);
+router.post("/updateApollo" , updateApollo);
+router.post("/referbymedical" , referbymedical);
+router.post("/notreferbymedical" , notreferbymedical);
+
+//these are not checked 
+
+
+
+
+
+
+
+
+
 // router.post("/getAppointmentsdoctor",getAppointmentsdoctor);
 
 

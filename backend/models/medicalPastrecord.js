@@ -13,13 +13,12 @@ const schema = new mongoose.Schema({
     },
     reg_no:{
     type: String,
-    default: "1234",
     },
     imglink:{
         type: String,
-         default:" ",
-    }
-    ,
+       
+    },
+    
     createdAt: {
         type: Date,
         default : Date.now(),
@@ -27,7 +26,5 @@ const schema = new mongoose.Schema({
 });
  
 
+export const MedicalPastrecord = mongoose.model("medicalpastrecord" , schema );
 
-
-
-export const Appointments = mongoose.model("appointments" , schema );

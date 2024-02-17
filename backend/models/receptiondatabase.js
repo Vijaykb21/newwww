@@ -13,7 +13,6 @@ const schema = new mongoose.Schema({
     },
     reg_no:{
     type: String,
-    default: "1234",
     },
     imglink:{
         type: String,
@@ -30,4 +29,4 @@ const schema = new mongoose.Schema({
 
 
 
-export const Appointments = mongoose.model("appointments" , schema );
+export const AllAppointments = mongoose.model("allappointments" , schema );

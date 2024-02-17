@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 // import nodemailer
 import { Doctor } from "../models/doctor.js";
 import { Appointments } from "../models/appointments.js";
+import { AllAppointments } from "../models/receptiondatabase.js";
+import { Record } from "../models/record.js";
 
 
 export const createAppointments = async(req,res)=>{
@@ -17,12 +19,18 @@ export const createAppointments = async(req,res)=>{
 
 
 
+
     const {firstname, lastname} = patient ;
+    const users = AllAppointments.find();
+    const reg_no  = users.length() + 1;
+
+
     const appointment =  await Appointments.create({
         firstname,
         lastname,
         pfnumber,
         doctorname,
+        reg_no,
     })
 
    if(appointment){
@@ -40,7 +48,7 @@ export const createAppointments = async(req,res)=>{
 }; 
 
 
-
+//this one is for doctor
 export const getAppointmentsdoctor = async(req,res) =>{
 const {token} = req.cookies;
 // console.log(req.headers.cookies);
@@ -62,3 +70,5 @@ appointments,
 
 
 }
+
+

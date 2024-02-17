@@ -8,10 +8,10 @@ cloudinary.config({
   api_secret: 'GPCyQ7o-9_QxL30Ni2PH6gufvjs' 
 });
 
-export const makeRecord =async(req,res)=>{
+export const makeRecord = async(req,res)=>{
     { 
         
-        const {image , pfnumber } = req.body;
+        const {image,pfnumber,} = req.body;
         
         cloudinary.uploader.upload(image,{public_id:"prescription"})
         .then(async(result)=>{
@@ -27,6 +27,8 @@ export const makeRecord =async(req,res)=>{
           message: "failure",
           error
          });
+
+         
         });
     }
 }
